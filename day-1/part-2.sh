@@ -1,6 +1,6 @@
 #!/bin/bash
 # TR3N
-# 2017-advent 1:1
+# 2017-advent 1:2
 
 input=$(cat input)
 TOTAL=${#input}
