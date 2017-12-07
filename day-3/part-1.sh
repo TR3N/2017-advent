@@ -51,18 +51,19 @@ nextmove="right"
 
 while [ $count -le $steps ]
   do
+  if [ $steps -eq $count ]; then
+    echo "$steps - ($x,$y)"
+    break
+  fi
   move
   count=$(( count + 1 ))
   done
-  echo "$steps - ($x,$y)"
 
 if [ $x -lt 0 ]; then
   x=$(( x * -1 ))
-  x=$(( x - 1 ))
 fi
 if [ $y -lt 0 ]; then
   y=$(( y * -1 ))
-  y=$(( y - 1 ))
 fi
 sum=$(( x + y ))
 echo $sum
