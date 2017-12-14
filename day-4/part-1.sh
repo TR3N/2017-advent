@@ -4,7 +4,9 @@
 
 lines=$(cat input | wc -l)
 count=1
-wordcount=0
+goodcount=0
+
+if [ -f valid-lines ]; then rm valid-lines; fi
 
 while [ $count -le $lines ]
   do
@@ -23,10 +25,8 @@ while [ $count -le $lines ]
     fi
     done
 
-  if [ $badcount -eq 1 ]; then
-    echo "line $count invalid"
-  else
-    echo "$line" >> valid-lines
+  if [ $badcount -eq 0 ]; then
+    goodcount=$(( goodcount + 1 ))
   fi
 
   badcount=0
@@ -35,5 +35,4 @@ while [ $count -le $lines ]
 
   done
 
-cat valid-lines | wc -l
-rm valid-lines
+echo $goodcount
